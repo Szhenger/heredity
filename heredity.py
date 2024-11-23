@@ -170,7 +170,10 @@ def joint_probability(people, one_gene, two_genes, have_trait):
 
             # Conditional probability with parents
             else:
-                one_probability *= mother_probability * (1 - father_probability) + father_probability * (1 - mother_probability)
+                one_probability *= (
+                    mother_probability * (1 - father_probability)
+                    + father_probability * (1 - mother_probability)
+                )
 
             if person in have_trait:
                 one_probability *= PROBS["trait"][1][True]
